@@ -1,0 +1,32 @@
+name: Tests
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: windows-latest
+    strategy:
+      matrix:
+        R: [ 'release', 'devel' ]
+    name: R ${{ matrix.R }}
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup R
+        uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: ${{ matrix.R }}
+      - run: |
+        # check the variables outside R
+        echo $env:R_HOME
+        echo $env:PATH
+
+        # check the command path
+        Get-Command R.exe
+        
+        # check the variables inside R
+        Rscript.exe -e 'print(normalizePath(R.home()))'
+        Rscript.exe -e 'print(Sys.getenv("R_HOME"))'
+        Rscript.exe -e 'print(Sys.getenv("PATH"))'
