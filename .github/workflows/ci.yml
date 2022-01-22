@@ -27,6 +27,6 @@ jobs:
           Get-Command R.exe
 
           # check the variables inside R
-          Rscript.exe -e 'print(normalizePath(R.home()))'
-          Rscript.exe -e 'print(Sys.getenv("R_HOME"))'
-          Rscript.exe -e 'print(Sys.getenv("PATH"))'
+          Rscript.exe -e "print(normalizePath(R.home()))"
+          Rscript.exe -e "print(Sys.getenv('R_HOME'))"
+          Rscript.exe -e "print(Sys.getenv('PATH'))"
