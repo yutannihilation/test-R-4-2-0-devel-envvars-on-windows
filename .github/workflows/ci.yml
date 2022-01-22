@@ -19,14 +19,14 @@ jobs:
         with:
           r-version: ${{ matrix.R }}
       - run: |
-        # check the variables outside R
-        echo $env:R_HOME
-        echo $env:PATH
+          # check the variables outside R
+          echo $env:R_HOME
+          echo $env:PATH
 
-        # check the command path
-        Get-Command R.exe
-        
-        # check the variables inside R
-        Rscript.exe -e 'print(normalizePath(R.home()))'
-        Rscript.exe -e 'print(Sys.getenv("R_HOME"))'
-        Rscript.exe -e 'print(Sys.getenv("PATH"))'
+          # check the command path
+          Get-Command R.exe
+
+          # check the variables inside R
+          Rscript.exe -e 'print(normalizePath(R.home()))'
+          Rscript.exe -e 'print(Sys.getenv("R_HOME"))'
+          Rscript.exe -e 'print(Sys.getenv("PATH"))'
