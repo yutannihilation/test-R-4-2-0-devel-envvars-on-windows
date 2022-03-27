@@ -28,6 +28,9 @@ jobs:
 
           # check the command path
           Get-Command R.exe
+          Get-Command Rscript.exe
+          
+          Rscript.exe -e "print(R.version)"
           
           # check the variables inside R
           Rscript.exe -e "print(normalizePath(R.home()))"
