@@ -33,6 +33,8 @@ jobs:
           Rscript.exe -e "print(normalizePath(R.home()))"
           Rscript.exe -e "print(Sys.getenv('R_HOME'))"
           Rscript.exe -e "print(Sys.getenv('PATH'))"
+          
+          Rscript.exe -e "print(Sys.getenv('RTOOLS42_HOME'))"
 
           # check the structure under R_HOME
           tree C:/R
